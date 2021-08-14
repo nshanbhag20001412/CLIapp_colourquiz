@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+onst chalk = require('chalk');
 var readlineSync = require('readline-sync');
 
  var score = 0;
@@ -17,27 +17,45 @@ var highScores = [
 ]
 
 // array of objects
-var questions = [{
- question: "Which of the following is a primary color\n"+chalk.magentaBright("Pink\n")+chalk.green("Green\n")+chalk.red("Red\n"),
+var questions = [
+  {
+ question: "Which of the following is a primary color.\n"+chalk.magentaBright("Pink\n")+chalk.green("Green\n")+chalk.red("Red\n"),
   answer: "Red",
 }, 
+
 {
  question: "Which of the following is  a secondary color\n"+chalk.magentaBright("Pink\n")+chalk.green("Green\n")+chalk.yellow("Yellow\n"),
  answer: "Green",
 },
+
 {
-  question: "What does "+ chalk.red("red ")+"and "+chalk.yellow("yellow")+ "gives you? \n "+chalk.magentaBright("Pink\n")+chalk.green("Green\n")+chalk.yellow("Yellow\n"),
+  question: "What does "+ chalk.red("red ")+"and "+chalk.yellow("yellow ")+ "gives you? \n "+chalk.magentaBright("Pink\n")+chalk.rgb(255, 136, 0)("Orange\n")+chalk.yellow("Yellow\n"),
+  answer: "Orange",
+},
+
+{
+  question: "What does "+ chalk.yellow("yellow ")+"and "+chalk.green("blue ")+ "gives you? \n "+chalk.magentaBright("Pink\n")+chalk.green("Green\n")+chalk.yellow("Yellow\n"),
   answer: "Green",
-}];
+},
+
+{
+  question: "What does "+ chalk.red("red ")+"and "+chalk.blue("blue ")+ "gives you? \n "+chalk.magentaBright("Pink\n")+chalk.rgb(152,98,253)("Violet\n")+chalk.yellow("Yellow\n"),
+  answer: "Violet",
+},
+
+
+];
 
 function welcome() {
 console.log("Welcome to KNOW YOUR COLORS" );
 console.log("\n----------------------------------------\n");
 console.log(chalk.bold.redBright( "Let's test your Knowledge about colors!"));
 
-var userName=readlineSync.question("What should I call you? ");
+var userName=readlineSync.question("What should I call you?");
+
 
 console.log("Welcome " + userName );
+console.log(" Note: Put answers as they are in the option, as they are case sensitive!");
 console.log("Here you go!" );
 }
 
@@ -77,3 +95,4 @@ function showScores() {
 welcome();
 game();
 showScores();
+
